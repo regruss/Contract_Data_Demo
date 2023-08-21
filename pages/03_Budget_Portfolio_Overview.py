@@ -28,7 +28,7 @@ import plotly.express as px
 # Find emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="Budget Portfolio Overview",layout="wide",page_icon=":bar_chart:")
 # Insert into DF
-budget_df = pd.read_csv(r'Contract_Data_Demo\Budget_Portfolio_DF.csv')
+budget_df = pd.read_csv(r'https://github.com/regruss/Contract_Data_Demo/Budget_Portfolio_DF.csv')
 # DF Overview Title
 st.title(":bar_chart: Budget Portfolio Overview")
 st.subheader('Main Data Frame')
