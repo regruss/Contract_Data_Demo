@@ -29,7 +29,7 @@ import plotly.express as px
 # Find emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="Contract Portfolio Overview",layout="wide",page_icon=":bar_chart:")
 # Insert into DF
-contract_df = pd.read_csv(r'https://github.com/regruss/Contract_Data_Demo/Contract_Portfolio_DF.csv')
+contract_df = pd.read_csv(r'C:\Users\regru\Desktop\PDF_OCR\NegotiationAI_Example_Data\Sample_Data_Generation\Contract_Portfolio_DF.csv')
 # Title
 st.title(":bar_chart: Contract Language Portfolio Overview")
 
