@@ -32,16 +32,17 @@ st.set_page_config(page_title="Contract Portfolio Overview",layout="wide",page_i
 contract_df = pd.read_csv(r'Contract_Portfolio_DF.csv')
 # Title
 st.title(":bar_chart: Contract Language Portfolio Overview")
-
+st.subheader('Selected Contract')
 # Sidebar filtering
 st.sidebar.header("Filters:")
-fn = st.sidebar.multiselect("Search by File Name",options=contract_df['File_Name'].unique(),default=contract_df['File_Name'].iloc[0])
+fn = st.sidebar.multiselect("Select a Contract",options=contract_df['File_Name'].unique(),default=contract_df['File_Name'].iloc[0])
 df_selection = contract_df.query("File_Name == @fn")
 st.dataframe(df_selection)
 
+st.subheader('Filtered Contracts')
 # Sort DF
-col = st.sidebar.multiselect("Select a Column",options=['Indemnity_Favorability','Patent_Favorability','Subject_Injury_Favorability'],default='Indemnity_Favorability')
-val = st.sidebar.multiselect("Select Language Type(s)",options=['standard','sponsor','institution'],default='standard')
+col = st.sidebar.multiselect("Select a Column to Filter on",options=['Indemnity_Favorability','Patent_Favorability','Subject_Injury_Favorability'],default='Indemnity_Favorability')
+val = st.sidebar.multiselect("Select a Value to Filter on",options=['standard','sponsor','institution'],default='standard')
 search_df = contract_df[contract_df[col[0]].isin(val[:])]
 st.dataframe(search_df)
 
@@ -68,7 +69,7 @@ sub2 = len(contract_df[contract_df['Subject_Injury_Favorability'] == 'institutio
 # Sponsor %
 sub3 = len(contract_df[contract_df['Subject_Injury_Favorability'] == 'sponsor'].values)/len(contract_df)
 
-st.header('Language Overview')
+st.header('Portfolio Overview')
 # Plot
 fig1 = px.pie(values=[indem1,indem2,indem3],names=['Standard Language','Institution Friendly','Sponsor Friendly'],title='<b>Indemnity</b>',color_discrete_sequence=["red", "green", "blue"],hole=0.3)
 fig2 = px.pie(values=[pat1,pat2,pat3],names=['Standard Language','Institution Friendly','Sponsor Friendly'],title='<b>Patents</b>',color_discrete_sequence=["green", "blue", "red"],hole=0.3)
