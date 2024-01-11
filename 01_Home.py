@@ -28,7 +28,8 @@ import streamlit as st
 # Find emojis here: https://www.webfx.com/tools/emoji-cheat-sheet/
 def main():
     st.set_page_config(page_title="CTA Data Extraction",page_icon=":house:")
-    st.header("Extract Data From Your Contracts (This is for Demonstration Purposes Only!)")
+    st.header("Extract Data From Your Contracts")
+    st.subheader('*This is for Demonstration Purposes Only!')
     pdf_files = st.file_uploader("Upload Files", accept_multiple_files=True, type="pdf")
     # Extract Data
     if bool(pdf_files):
