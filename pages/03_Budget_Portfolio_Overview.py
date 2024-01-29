@@ -40,7 +40,7 @@ st.dataframe(df_selection)
 
 
 # Percentiles
-st.subheader('Select Contract Percentiles')
+st.subheader('Selected Contract Percentiles')
 budget_pcts_df = pd.DataFrame(columns=['Patient_Count', 'Overhead_Rate', 'Total_Cost','Per_Site_OH', 'Conditional_OH', 'Startup_OH', 'Expected_Revenue','SG&A', 'Total_Negotiation_Days', 'NPV10'])
 for col in budget_pcts_df.columns:
     budget_pcts_df[col] = budget_df[col].rank(pct=True)
